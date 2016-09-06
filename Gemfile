@@ -19,6 +19,7 @@ gem 'puma'
 gem 'slim-rails'
 gem 'sidekiq'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'jwt'
 
 
 group :development do
