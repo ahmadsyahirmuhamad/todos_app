@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      | TodoApp
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    .container-fluid
+      #menu
+        = render 'todo_apps/shared/menu'
+      #flash
+        = render 'todo_apps/shared/flash'
+      #wrapper
+        = yield
+      #footer
+        = render 'todo_apps/shared/footer'
+      = render 'todo_apps/shared/signup_modal'
