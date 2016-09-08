@@ -1,0 +1,46 @@
+h3
+  | Show
+
+h4
+  | Hello #{@user.first_name}
+
+h5
+  | User Info
+
+  = render 'todo_apps/users/user_field'
+h5
+  | Todo Lists
+
+table.table.table-striped
+  tr
+    th
+      | Title
+    th
+      | Description
+    th
+      | Category Id
+    th
+      | Status
+    th
+      | Created At
+    th
+      | Action
+
+  - @todos.each do |todo|
+    tr
+      td
+        = todo.title
+      td
+        = todo.description
+      td
+        = todo.category.name
+      td
+        = todo.status
+      td
+        = todo.created_at
+      td
+        | Action
+
+
+
+
