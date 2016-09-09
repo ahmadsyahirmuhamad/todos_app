@@ -1,0 +1,36 @@
+#menu {
+  width: 100%;
+  @include flex-parent(wrap);
+  justify-content: space-around;
+  background-color: rgba(255,255,255,0.6);
+  position: fixed;
+  top:0px;
+}
+
+.menu-logo {
+  @include flex-child(0, 20%);
+}
+
+.menu-list {
+  @include flex-child(1, 80%);
+  ul {
+    @include flex-parent(wrap);
+    justify-content: flex-end;
+    list-style-type: none;
+    li {
+      @include flex-child(0, auto);
+      margin: 5px;
+      padding: 10px;
+      &:hover {
+        background-color: red;
+      }
+      button {
+        font-size: 20px;
+        color: black;
+      }
+      .menu-button {
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -7,13 +7,9 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    .container-fluid
-      #menu
-        = render 'todo_apps/shared/menu'
-      #flash
-        = render 'todo_apps/shared/flash'
-      #wrapper
-        = yield
-      #footer
-        = render 'todo_apps/shared/footer'
-      = render 'todo_apps/shared/signup_modal'
+    = render 'todo_apps/shared/menu'
+    = render 'todo_apps/shared/flash'
+    #wrapper
+      = yield
+    = render 'todo_apps/shared/footer'
+    = render 'todo_apps/shared/signup_modal'
