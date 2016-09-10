@@ -8,7 +8,7 @@ class TodoApps::BaseController < ApplicationController
 
   def authenticate!
     unless current_user
-      redirect_to new_user_session_path
+      redirect_to main_index_path
       flash[:alert] = "You need to login before performing this action"
     end
   end
@@ -19,6 +19,10 @@ class TodoApps::BaseController < ApplicationController
 
   def user_login(user)
     session[:user_id] = user.id
+  end
+
+  def user_logout()
+    session.delete(:user_id)
   end
 
   def redirect_if_already_login

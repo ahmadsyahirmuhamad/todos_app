@@ -1,5 +1,19 @@
 class TodoApps::UsersController < TodoApps::BaseController
+  skip_before_action :authenticate!, except: [:create]
+  skip_before_action :current_user, except: [:create]
+  # before_action :already_registered, only: [:create]
 
+  def create
+    binding.pry
+    if user = User.create(user_params)
+      flash[:success] = "Register Success"
+      user_login(user)
+      redirect_to user_path(user)
+    else
+      flash[:alert] = "Register Failed"
+      redirect_to :back
+    end
+  end
 
   def show
     @todos = @user.todos
@@ -21,7 +35,7 @@ class TodoApps::UsersController < TodoApps::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
 end

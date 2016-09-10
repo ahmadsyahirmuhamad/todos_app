@@ -10,14 +10,20 @@ class TodoApps::UserSessionsController < TodoApps::BaseController
   end
 
   def create
-    if user = User.create(user_params)
-      flash[:success] = "Register Success"
-      user_login(user)
-      redirect_to user_path(user)
-    else
-      flash[:alert] = "Register Failed"
-      redirect_to :back
-    end
+    # if user = User.create(user_params)
+    #   flash[:success] = "Register Success"
+    #   user_login(user)
+    #   redirect_to user_path(user)
+    # else
+    #   flash[:alert] = "Register Failed"
+    #   redirect_to :back
+    # end
+  end
+
+  def destroy
+    binding.pry
+    user_logout()
+    redirect_to main_index_path
   end
 
   private
