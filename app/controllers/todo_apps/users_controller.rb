@@ -1,7 +1,8 @@
 class TodoApps::UsersController < TodoApps::BaseController
-  skip_before_action :authenticate!, except: [:create]
-  skip_before_action :current_user, except: [:create]
-  # before_action :already_registered, only: [:create]
+
+  skip_before_action :authenticate!, only: [:create]
+  skip_before_action :current_user, only: [:create]
+  before_action :already_registered, only: [:create]
 
   def create
     if user = User.create(user_params)
@@ -35,6 +36,14 @@ class TodoApps::UsersController < TodoApps::BaseController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+
+  def already_registered
+    user = User.find_by(email: user_params[:email])
+    if user.present?
+      flash[:alert] = "You Already Have An Account With Us"
+      redirect_to :back
+    end
   end
 
 end

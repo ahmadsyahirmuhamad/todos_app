@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   scope module: 'todo_apps' do
     resources :main, only: [:index]
-    resources :user_sessions, only: [:new, :create, :destroy]
+    resources :user_sessions, only: [:create, :destroy]
     resources :users, except: [:index] do
       resources :todos
     end
