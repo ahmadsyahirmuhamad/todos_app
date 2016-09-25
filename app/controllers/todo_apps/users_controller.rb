@@ -4,7 +4,6 @@ class TodoApps::UsersController < TodoApps::BaseController
   # before_action :already_registered, only: [:create]
 
   def create
-    binding.pry
     if user = User.create(user_params)
       flash[:success] = "Register Success"
       user_login(user)
