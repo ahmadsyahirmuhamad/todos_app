@@ -1,0 +1,23 @@
+#footer {
+  @include flex-parent(wrap);
+  background-color: rgba(255,255,255,0.6);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-text {
+  @include flex-child(0, 60%);
+  padding: 10px;
+  padding-left: 20%;
+}
+
+.footer-links {
+  @include flex-child(0, 40%);
+  padding: 10px;
+}
+
