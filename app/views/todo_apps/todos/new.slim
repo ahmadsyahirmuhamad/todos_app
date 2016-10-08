@@ -1,4 +1,11 @@
-h3
-  | New Todo
+.page.center
+  h3
+    | New Todo
 
-= render 'todo_apps/todos/todo_field'
+.form-todo
+  = form_for @todo, url: user_todos_path(@user) do |f|
+    = render 'todo_apps/todos/todo_field', f: f
+    .row
+      .col-md-offset-4.col-md-4
+        br/
+        = f.submit "Create", class: 'btn btn-info btn-block'

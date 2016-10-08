@@ -3,19 +3,18 @@
     h3
       | Hello
 
-  / - if @user.present?
-  /   .menu-list
-  /     ul
-  /       li
-  /         = form_for @user, url: user_session_path(@user), :method => "delete" do |f|
-  /           = f.submit "Logout", class: 'btn btn-link menu-button'
-  / - else
-  .menu-list
-    ul
-      li
-        a.btn.btn-link.btn-lg.menu-button[type="button" data-toggle="modal" data-target="#signUpModal"]
-          | Sign Up
-      li
-        a.btn.btn-link.btn-lg.menu-button[type="button" data-toggle="modal" data-target="#signInModal"]
-          | Login
-
+  - if current_page?(root_path) || current_page?(main_index_path)
+    .menu-list
+      ul
+        li
+          a.btn.btn-link.btn-lg.menu-button[type="button" data-toggle="modal" data-target="#signUpModal"]
+            | Sign Up
+        li
+          a.btn.btn-link.btn-lg.menu-button[type="button" data-toggle="modal" data-target="#signInModal"]
+            | Login
+  - else
+    .menu-list
+      ul
+        li
+          = form_for @user, url: user_session_path(@user), :method => "delete" do |f|
+            = f.submit "Logout", class: 'btn btn-link menu-button'

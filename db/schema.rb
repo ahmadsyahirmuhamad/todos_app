@@ -62,10 +62,10 @@ ActiveRecord::Schema.define(version: 20160908151239) do
     t.string   "title"
     t.string   "description"
     t.integer  "category_id"
-    t.boolean  "status"
+    t.boolean  "status",      default: false
     t.uuid     "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|

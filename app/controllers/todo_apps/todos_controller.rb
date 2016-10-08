@@ -1,10 +1,10 @@
 class TodoApps::TodosController < TodoApps::BaseController
 
   before_action :current_todo, except: [:new, :create]
+  before_action :categories, only: [:new, :edit]
 
   def new
     @todo = current_user.todos.new()
-    @categories = Category.all
   end
 
   def create
@@ -33,6 +33,12 @@ class TodoApps::TodosController < TodoApps::BaseController
     end
   end
 
+  def destroy
+    @todo.destroy
+    flash[:success] = "Todo Deleted"
+    redirect_to :back
+  end
+
 
   private
 
@@ -42,6 +48,10 @@ class TodoApps::TodosController < TodoApps::BaseController
 
   def current_todo
     @todo = Todo.find(params[:id])
+  end
+
+  def categories
+    @categories = Category.all
   end
 
 end

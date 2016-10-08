@@ -4,7 +4,7 @@ class CreateTodos < ActiveRecord::Migration
       t.string   :title
       t.string   :description
       t.integer  :category_id
-      t.boolean  :status
+      t.boolean  :status, default: false
       t.uuid  :user_id
       t.timestamps null: false
     end

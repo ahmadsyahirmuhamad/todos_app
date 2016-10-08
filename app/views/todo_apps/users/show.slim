@@ -1,8 +1,9 @@
-h3
-  | Show
+.page.center
+  h3
+    | Show
 
-h4
-  | Hello #{@user.first_name}
+  h4
+    | Hello #{@user.first_name}
 
 h5
   | User Info
@@ -41,7 +42,10 @@ table.table.table-striped
       td
         = todo.created_at
       td
-        | Action
+        = link_to "Edit", edit_user_todo_path(@user, todo)
+        | &nbsp;
+        = link_to "Delete", user_todo_path(@user, todo), method: 'delete'
+
 
 
 
