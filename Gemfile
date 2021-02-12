@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'rails', '4.2.6'
+gem 'rails', '6.0.3.5'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -32,7 +32,7 @@ group :development do
   gem 'quiet_assets'
   gem 'spring'
   gem 'letter_opener'
-  gem 'rails_db_info'
+  gem 'rails_db_info', '>= 0.2.0'
 end
 
 group :test do
