@@ -31,15 +31,15 @@ group :development do
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'spring'
-  gem 'letter_opener'
+  gem 'letter_opener', '>= 1.4.1'
   gem 'rails_db_info'
 end
 
 group :test do
   gem 'shoulda-matchers'
-  gem 'capybara'
+  gem 'capybara', '>= 2.8.1'
   gem 'database_cleaner'
-  gem 'launchy'
+  gem 'launchy', '>= 2.4.3'
   gem 'selenium-webdriver'
 end
 
